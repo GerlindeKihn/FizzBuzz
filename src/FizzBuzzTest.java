@@ -1,35 +1,51 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class FizzBuzzTest {
 
-    @org.junit.jupiter.api.Test
-
-    void printFizzBuzzPrintBuzz() {
+    @ParameterizedTest
+    @ValueSource(ints = {5, 10, 20, 25})
+    void printFizzBuzzPrintBuzz(int i) {
 
         // act
-        String result = FizzBuzz.getFizzBuzz(5);
+        String result = FizzBuzz.getFizzBuzz(i);
 
         // assert
         Assertions.assertEquals("Buzz", result);
     }
 
-    void printFizzBuzzPrintFizz() {
+    @ParameterizedTest
+    @ValueSource(ints = {3, 9, 12, 18})
+    void printFizzBuzzPrintFizz(int i) {
 
         // act
-        String result = FizzBuzz.getFizzBuzz(3);
+        String result = FizzBuzz.getFizzBuzz(i);
 
         // assert
         Assertions.assertEquals("Fizz", result);
     }
 
-    void printFizzBuzzPrintFizzBuzz() {
+    @ParameterizedTest
+    @ValueSource(ints = {15, 30, 45, 60})
+    void printFizzBuzzPrintFizzBuzz(int i) {
 
         // act
-        String result = FizzBuzz.getFizzBuzz(15);
+        String result = FizzBuzz.getFizzBuzz(i);
 
         // assert
         Assertions.assertEquals("FizzBuzz", result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {11, 22, 32, 77})
+    void printFizzBuzzPrintValueOfI(int i) {
+
+        // act
+        String result = FizzBuzz.getFizzBuzz(i);
+
+        // assert
+        Assertions.assertEquals(String.valueOf(i), result);
     }
 }
